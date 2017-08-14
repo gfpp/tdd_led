@@ -26,3 +26,12 @@ void test_LedOn(void)
   TEST_ASSERT_EQUAL_HEX16(0x0001, ledPort);
 }
 
+void test_LedOff(void)
+{
+  uint16_t ledPort = 0xFFFF;
+  LedInit(&ledPort);
+  LedOn(1);
+  LedOff(1);
+  TEST_ASSERT_EQUAL_HEX16(0x0000, ledPort);
+}
+
