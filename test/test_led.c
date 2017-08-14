@@ -2,8 +2,11 @@
 #include "unity.h"
 #include <stdint.h>
 
+static uint16_t ledPort;
+
 void setUp(void)
 {
+  LedInit(&ledPort);
 }
 
 void tearDown(void)
@@ -20,16 +23,12 @@ void test_LedsOffAfterCreate(void)
 
 void test_LedOn(void)
 {
-  uint16_t ledPort = 0xFFFF;
-  LedInit(&ledPort);
   LedOn(1);
   TEST_ASSERT_EQUAL_HEX16(0x0001, ledPort);
 }
 
 void test_LedOff(void)
 {
-  uint16_t ledPort = 0xFFFF;
-  LedInit(&ledPort);
   LedOn(1);
   LedOff(1);
   TEST_ASSERT_EQUAL_HEX16(0x0000, ledPort);
