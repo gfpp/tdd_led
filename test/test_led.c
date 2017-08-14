@@ -18,3 +18,9 @@ void test_LedsOffAfterCreate(void)
   TEST_ASSERT_EQUAL_HEX16(0x0000, ledPort);
 }
 
+void test_LedOn(void)
+{
+  LedOn(1);
+  TEST_ASSERT_EQUAL_HEX16(0x0001, ledPort);
+}
+
