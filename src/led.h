@@ -5,4 +5,4 @@
 
 void LedInit(uint16_t * );
 
-#endif _LED_H
+#endif
