@@ -20,6 +20,8 @@ void test_LedsOffAfterCreate(void)
 
 void test_LedOn(void)
 {
+  uint16_t ledPort = 0xFFFF;
+  LedInit(&ledPort);
   LedOn(1);
   TEST_ASSERT_EQUAL_HEX16(0x0001, ledPort);
 }
