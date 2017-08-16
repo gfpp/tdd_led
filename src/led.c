@@ -24,6 +24,11 @@ void LedOnAll(void)
   *ledPort = 0xFFFF;
 }
 
+void LedOffAll(void)
+{
+  *ledPort = 0x0000;
+}
+
 static uint16_t LedToPortMask(uint8_t led)
 {
   return (1 << (led -1));
