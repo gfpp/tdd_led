@@ -10,7 +10,7 @@ void LedInit(uint16_t * port)
 
 void LedOn(uint8_t led)
 {
-  *ledPort = 0x0001;
+  *ledPort |= 1 << (led-1);
 }
 
 void LedOff(uint8_t led)
