@@ -1,6 +1,7 @@
 #include "led.h"
 
 static uint16_t * ledPort;
+static uint16_t LedToPortMask(uint8_t );
 
 void LedInit(uint16_t * port)
 {
@@ -10,11 +11,15 @@ void LedInit(uint16_t * port)
 
 void LedOn(uint8_t led)
 {
-  *ledPort |= 1 << (led-1);
+  *ledPort |= LedToPortMask(led);
 }
 
 void LedOff(uint8_t led)
 {
-  *ledPort &= ~(1 << (led-1));
+  *ledPort &= ~LedToPortMask(led);
 }
 
+static uint16_t LedToPortMask(uint8_t led)
+{
+  return (1 << (led -1));
+}
