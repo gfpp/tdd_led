@@ -8,5 +8,6 @@ void LedOn(uint8_t );
 void LedOff(uint8_t );
 void LedOnAll(void);
 void LedOffAll(void);
+uint8_t LedStatus(uint8_t );
 
 #endif

@@ -64,3 +64,26 @@ void test_LedOffAll(void)
   TEST_ASSERT_EQUAL_HEX16(0x0000, ledPort);
 }
 
+void test_LedStatus1On(void)
+{
+  LedOn(1); /* Turn on LED 1 */
+  TEST_ASSERT_EQUAL_UINT8(1, LedStatus(1));
+}
+
+void test_LedStatus1Off(void)
+{
+  LedOff(1); /* Turn off LED 1 */
+  TEST_ASSERT_EQUAL_UINT8(0, LedStatus(1));
+}
+
+void test_LedStatus8On(void)
+{
+  LedOn(8);
+  TEST_ASSERT_EQUAL_UINT8(1, LedStatus(8));
+}
+
+void test_LedStatus8Off(void)
+{
+  LedOff(8);
+  TEST_ASSERT_EQUAL_UINT8(0, LedStatus(8));
+}
