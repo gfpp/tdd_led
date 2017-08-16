@@ -34,7 +34,7 @@ void test_LedOff(void)
   TEST_ASSERT_EQUAL_HEX16(0x0000, ledPort);
 }
 
-void testLedsOn(void)
+void test_LedsOn(void)
 {
   ledPort = 0x0000;
   LedOn(8); /* 0x0080 */
@@ -42,10 +42,18 @@ void testLedsOn(void)
   TEST_ASSERT_EQUAL_HEX16(0x0180, ledPort);
 }
 
-void testLedsOff(void)
+void test_LedsOff(void)
 {
   ledPort = 0xFFFF;
   LedOff(8);
   LedOff(9);
   TEST_ASSERT_EQUAL_HEX16(0xFE7F, ledPort);
 }
+
+void test_LedOnAll(void)
+{
+  ledPort = 0x0000;
+  LedOnAll();
+  TEST_ASSERT_EQUAL_HEX16(0xFFFF, ledPort);
+}
+
